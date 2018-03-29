@@ -2,29 +2,27 @@
 
 {% block content %}
         <h1>User Sign-up</h1>
-        <form method= 'POST'>
+        <form action= "/success" method= 'post'>
             <label>
                 Username:
                 <input type= "text" name= "username"/>
             </label>
-        </form>
-        <form method= 'POST'>
+            <br>
             <label>
                 Password:
                 <input type= "password" name= "password"/>
             </label>
-        </form>
+            <br>
             <label>
                 Retype Password:
                 <input type= "password" name= "retype_password"/>
             </label>
-        <form method= 'POST'>
+            <br>
             <label>
                 Email (optional):
                 <input type= "test" name= "email"/>
             </label>
-        </form>
-        <form method= 'POST'>
+            <br>
             <input type= "submit"/>
         </form>
 
