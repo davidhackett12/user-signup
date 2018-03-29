@@ -1,0 +1,31 @@
+{% extends "base.html"}
+
+{% block content %}
+        <h1>User Sign-up</h1>
+        <form method= 'post'>
+            <label>
+                Username:
+                <input type= "text" name= "username"/>
+            </label>
+        </form>
+        <form method = 'post'>
+            <label>
+                Password:
+                <input type= "password" name= "password"/>
+            </label>
+        </form>
+        <form method= 'post'>
+            <label>
+                Retype Password:
+                <input type= "password" name= "retype_password"/>
+            </label>
+        </form>
+        <form method= 'post'>
+            <label>
+                Email (optional):
+                <input type= "test" name= "email"/>
+            </label>
+        </form>
+
+
+{% endblock %}
