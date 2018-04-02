@@ -12,15 +12,18 @@ def index():
     password_error = ""
     retype_error = ""
     email_error = ""
-    username_error = request.args.get(username_error)
-    password_error = request.args.get(password_error)
-    if username_error or password_error:
+    username_error = request.args.get('username_error')
+    password_error = request.args.get('password_error')
+    retype_error = request.args.get('retype_error')
+    if username_error or password_error or retype_error:
         username_error = username_error
         password_error = password_error
+        retype_error = retype_error
     else:
         username_error = ""
         password_error = ""
-    return render_template('index.html', username_error=username_error, password_error = password_error)
+        retype_error = ""
+    return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error)
 
 @app.route("/success", methods=['POST'])
 def success():
@@ -47,16 +50,22 @@ def success():
     if retype_password != password:
         retype_error = "passwords do not match"
     else:
-        retype_err0r = ""
+        retype_error = ""
     
-    if "@" or "." not in email:
+    if email == "":
+        email_error = ""
+    elif email.count('@') != 1 or email.count('.') != 1:
+        email_error = "this is not a valid email"
+    elif len(email) > 20 or len(email) < 3:
+        email_error = "this is not a valid email"
+    elif " " in email:
         email_error = "this is not a valid email"
     else:
         email_error = ""
 
 
     if username_error or password_error or retype_error or email_error:
-        return render("/", username_error=username_error, password_error=password_error)
+        return redirect("/?="+username_error+password_error+retype_error+email_error)
     else:
         return render_template('success.html', username=username)
 
