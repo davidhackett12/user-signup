@@ -12,21 +12,10 @@ def index():
     password_error = ""
     retype_error = ""
     email_error = ""
-    username_error = request.args.get('username_error')
-    password_error = request.args.get('password_error')
-    retype_error = request.args.get('retype_error')
-    if username_error or password_error or retype_error:
-        username_error = username_error
-        password_error = password_error
-        retype_error = retype_error
-    else:
-        username_error = ""
-        password_error = ""
-        retype_error = ""
     return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error)
 
-@app.route("/success", methods=['POST'])
-def success():
+@app.route("/", methods=['POST'])
+def validate():
     username = request.form['username']
     password = request.form['password']
     retype_password = request.form['retype_password']
@@ -62,11 +51,15 @@ def success():
         email_error = "this is not a valid email"
     else:
         email_error = ""
-
-
+    
     if username_error or password_error or retype_error or email_error:
-        return redirect("/?="+username_error+password_error+retype_error+email_error)
+        return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error)
     else:
-        return render_template('success.html', username=username)
+        return redirect("/success?username="+username)
+
+@app.route("/success")
+def success():
+    username = request.args.get('username')
+    return render_template('success.html', username=username)
 
 app.run()
