@@ -21,34 +21,34 @@ def validate():
     retype_password = request.form['retype_password']
     email = request.form['email']
     if len(username) <= 2 or len(username) >= 21:
-        username_error = "username is not the right length"
+        username_error = "Username is not the right length"
     elif " " in username:
-        username_error = "username cannot include spaces"
+        username_error = "Username cannot include spaces"
     elif username == "":
-        usernname_error = "no username is entered" 
+        usernname_error = "No username is entered" 
     else:
         username_error = ""
 
     if password == "":
-        password_error = "you did not enter a password"
+        password_error = "You did not enter a password"
     elif len(password) <= 2 or len(password) >= 21:
-        password_error = "password is not the right length"
+        password_error = "Password is not the right length"
     else:
         password_error = ""
-    
+
     if retype_password != password:
-        retype_error = "passwords do not match"
+        retype_error = "Passwords do not match"
     else:
         retype_error = ""
     
     if email == "":
         email_error = ""
     elif email.count('@') != 1 or email.count('.') != 1:
-        email_error = "this is not a valid email"
+        email_error = "This is not a valid email"
     elif len(email) > 20 or len(email) < 3:
-        email_error = "this is not a valid email"
+        email_error = "This is not a valid email"
     elif " " in email:
-        email_error = "this is not a valid email"
+        email_error = "This is not a valid email"
     else:
         email_error = ""
     
