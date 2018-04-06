@@ -12,7 +12,9 @@ def index():
     password_error = ""
     retype_error = ""
     email_error = ""
-    return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error)
+    username = ""
+    email =""
+    return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error, username=username, email=email)
 
 @app.route("/", methods=['POST'])
 def validate():
@@ -53,7 +55,7 @@ def validate():
         email_error = ""
     
     if username_error or password_error or retype_error or email_error:
-        return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error)
+        return render_template('index.html', username_error=username_error, password_error = password_error, retype_error=retype_error, email_error=email_error, username=username, email=email)
     else:
         return redirect("/success?username="+username)
 
