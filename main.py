@@ -40,6 +40,8 @@ def validate():
 
     if retype_password != password:
         retype_error = "Passwords do not match"
+    elif retype_password == "":
+        retype_error = "You did not enter a password"
     else:
         retype_error = ""
     

@@ -3,38 +3,55 @@
 {% block content %}
         <h1>User Sign-up</h1>
         <form action= "/" method= 'post'>
-            <div>
-                <label id="username">
-                    Username:
-                    <input type= "text" name= "username" value = {{username}} >
-                    &nbsp;
-                    <span class= "error">{{username_error}}</span>
-                </label>
-            </div>
-            <div>
-                <label id="password">
-                    Password:
-                    <input type= "password" name= "password"/>
-                    &nbsp;
-                    <span class ="error">{{password_error}}</span>
-                </label>
-            </div>
-            <div>
-                <label id="retype_password">
-                    Retype Password:
-                    <input type= "password" name= "retype_password"/>
-                    &nbsp;
-                    <span class = "error">{{retype_error}}</span>
-                </label>
-            </div>
-            <div>
-                <label id="email">
-                    Email (optional):
-                    <input type= "test" name= "email" value = {{email}} >
-                    &nbsp;
-                    <span class = "error">{{email_error}}</span>
-                </label>
-            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label id="username">
+                            Username:
+                        </label>
+                    </td>
+                    <td>
+                        <input type= "text" name= "username" value = {{username}} >
+                        &nbsp;
+                        <span class= "error">{{username_error}}</span>
+                    </td>
+                <tr>
+                    <td>
+                        <label id="password">
+                            Password:
+                        </label>
+                    </td>
+                    <td>
+                        <input type= "password" name= "password"/>
+                        &nbsp;
+                        <span class ="error">{{password_error}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="retype_password">
+                            Retype Password:
+                        </label>
+                    </td>
+                    <td>
+                        <input type= "password" name= "retype_password"/>
+                        &nbsp;
+                        <span class = "error">{{retype_error}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="email">
+                            Email (optional):
+                        </label>
+                    </td>
+                    <td>
+                        <input type= "test" name= "email" value = {{email}} >
+                        &nbsp;
+                        <span class = "error">{{email_error}}</span>
+                    </td>
+                </tr>
+            </table>
             <div>
                 <input type= "submit" value= "Signup!"/>
             </div>
